@@ -12,9 +12,22 @@ const users = [{
 }];
 
 http.createServer((request, response) => {
+  if (request.url !== '/users') {
+    response.writeHead(
+      404,
+      { 'content-type': 'application/json' }
+    );
+    response.end(JSON.stringify({
+      error: 404,
+      message: 'Resource not found.'
+    }));
+    
+    return;
+  }
+
   response.writeHead(
     200,
-    { "content-type": "application/json" }
+    { 'content-type': 'application/json' }
   );
   response.end(JSON.stringify(users));
 }).listen(3000);
