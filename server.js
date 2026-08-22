@@ -12,6 +12,8 @@ const users = [{
 }];
 
 http.createServer((request, response) => {
+  response.setHeader('Access-Control-Allow-Origin', '*');
+
   if (request.url !== '/users') {
     response.writeHead(
       404,
