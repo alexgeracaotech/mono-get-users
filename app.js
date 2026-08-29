@@ -18,6 +18,7 @@ button.addEventListener('click', async (event) => {
     if (inputValue === data[i].email) {
       paragraph.textContent = `Usuário ${data[i].name} encontrado.`;
       found = true;
+      break;
     }
   }
 
